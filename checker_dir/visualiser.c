@@ -6,7 +6,7 @@
 /*   By: tlux <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/14 17:54:18 by tlux              #+#    #+#             */
-/*   Updated: 2018/01/18 20:36:59 by tlux             ###   ########.fr       */
+/*   Updated: 2018/01/20 21:33:18 by tlux             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void display_middle(int *a, int *b, int *params)
 		{
 			if(params[0] > i)
 			{
-				if (i == get_extrems(a, params[0], 1))
+				if(store_pivot(&(a[i]), "read") == 1)
+					printf(KCYN"\t|" KMAG"%*d"_END KCYN"|  ", width, a[i]);
+				else if (i == get_place(a, params[0], a[i]))
 					printf(KCYN"\t|" KGRN"%*d"_END KCYN"|  ", width, a[i]);
-				else if (i == get_extrems(a, params[0], 0))
-					printf(KCYN"\t|" KRED"%*d"_END KCYN"|  ", width, a[i]);
 				else
 				printf(KCYN"\t|" KYEL "%*d"_END KCYN"|  ", width, a[i]);
 
@@ -51,10 +51,10 @@ static void display_middle(int *a, int *b, int *params)
 				printf(KRED"\t|%*s  ", width + 1, "|");
 			if(params[1] > i)
 			{
-				if (i == get_extrems(b, params[1], 1))
-					printf(KCYN"|" KGRN"%*d"_END KCYN"|\n" KNRM, width, b[i]);
-				else if (i == get_extrems(b, params[1], 0))
-					printf(KCYN"|" KRED"%*d"_END KCYN"|\n" KNRM, width, b[i]);
+				if(store_pivot(&(b[i]), "read") == 1)
+					printf(KCYN"|" KMAG"%*d"_END KCYN"|\n" KNRM, width, b[i]);
+				else if (i == params[1] - 1 - get_place(b, params[1], b[i]))
+				printf(KCYN"|" KGRN "%*d"_END KCYN"|\n" KNRM, width, b[i]);
 				else
 				printf(KCYN"|" KYEL "%*d"_END KCYN"|\n" KNRM, width, b[i]);
 			}

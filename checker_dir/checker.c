@@ -6,7 +6,7 @@
 /*   By: tlux <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 01:50:00 by tlux              #+#    #+#             */
-/*   Updated: 2018/01/18 18:46:11 by tlux             ###   ########.fr       */
+/*   Updated: 2018/01/21 23:35:49 by tlux             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	checker_progressive(int args, char **tab)
 	b = (int *)malloc(sizeof(*a) * (args - 2));
 	while (i < args)
 	{
-		a[i - 2] = ft_atoi(tab[i]);
+		a[i - 2] = ft_atoi(tab[args - i + 1]);
 		i++;
 	}
 	get_length(a, NULL, args - 2, 0);
@@ -62,7 +62,7 @@ void	checker(int args, char **tab)
 	a = (int *)malloc(sizeof(*a) * (args - 1));
 	while(i < args)
 	{
-		a[i - 1] = ft_atoi(tab[i]); //Ajouter condition check INT sur atoi
+		a[i - 1] = ft_atoi(tab[args - i]); //Ajouter condition check INT sur atoi
 		i++;
 	}
 	while(get_next_line(0, &line)) //CTRL +D pour stop

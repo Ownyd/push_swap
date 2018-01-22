@@ -6,7 +6,7 @@
 /*   By: tlux <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 00:12:12 by tlux              #+#    #+#             */
-/*   Updated: 2018/01/18 18:25:35 by tlux             ###   ########.fr       */
+/*   Updated: 2018/01/22 23:08:13 by tlux             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,41 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }	  				t_list;
+/*
+ *	Checker ressources
+ */
 
+void  checker(int args, char **tab);
+void exec_master(char **cmds, int *a, int lena);
 int 	exec_progressive(int *a, int *b, int lena, int lenb);
 void	checker_progressive(int args, char **tab);
 
+/*
+ * 	Visualiser ressources
+ */
+
+void get_length(int *a, int *b, int lena, int lenb);
+
+/*
+ *	Sorting alrorithms
+ */
+
+void quick_sort_multi_pivot(int *a, int lena);
+void quick_sort(int *a, int lena);
 void rotate_push(int *a, int lena);
+
+/*
+ *	Get_infos
+ */
+int get_next_pivot(int *tab, int lentab, char list);
+int get_place(int *tab, int lentab, int number);
+int get_median(int *tab, int lentab);
+int get_next(int *tab, int lentab, int indexnumber);
 int get_extrems(int *tab, int lentab, int choice);
-int ft_issort(int *tab, int lentab);
+
+/*
+ *	Push_swap commands
+ */
 
 void pb(int *a, int *b, int *lena, int *lenb);
 void pa(int *a, int *b, int *lena, int *lenb);
@@ -40,13 +68,20 @@ void s(int *tab, int lentab);
 void r(int *tab, int lentab, int nb);
 void rr(int *tab, int lentab, int nb);
 
+/*
+ *	Utils
+ */
+void refrag(int *a, int *b, int *lena, int *lenb, int *instructions);
+void frag(int *a, int *b, int *lena, int *lenb, int *instructions);
+int *ft_int_tab_dup(int *tab, int start, int end);
+int ft_issort(int *tab, int lentab);
+int store_pivot(int *pivot, char *str);
 
-void  checker(int args, char **tab);
-void exec_master(char **cmds, int *a, int lena);
-void get_length(int *a, int *b, int lena, int lenb);
+/*
+ *	 Libft
+ */
 
-void	ft_lstfadd(t_list **alst, t_list *new);
-	int				get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 int					ft_count_if(char **tab, int (*f)(char*));
 void				ft_foreach(int *tab, int length, void (*f)(int));
 void				ft_print_params(char *name);

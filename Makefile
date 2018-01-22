@@ -6,7 +6,7 @@
 #    By: tlux <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 16:01:04 by tlux              #+#    #+#              #
-#    Updated: 2018/01/18 16:04:28 by tlux             ###   ########.fr        #
+#    Updated: 2018/01/22 04:30:49 by tlux             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ LIBSRC =	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 		ft_strstr.c ft_strnstr.c ft_strrchr.c ft_count_if.c ft_foreach.c \
 		ft_print_params.c ft_sqrt.c ft_swap.c get_next_line.c ft_lstfadd.c
 CHECKERSRC =   checker.c exec_master.c visualiser.c
-PUSHSWAPSRC =	commands.c ft_issort.c get_extrems.c rotate_push.c
+PUSHSWAPSRC =	commands.c ft_issort.c get_infos.c rotate_push.c quick_sort.c \
+				ft_int_tab_dup.c get_pivot.c quick_sort2.c
 
 LIBOBJ = $(addprefix libft/, $(LIBSRC:.c=.o))
 CHECKEROBJ = $(addprefix checker_dir/, $(CHECKERSRC:.c=.o))
